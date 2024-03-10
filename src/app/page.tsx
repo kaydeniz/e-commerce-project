@@ -1,15 +1,8 @@
 "use client";
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import Main from "@/pages/Main";
+import Register from "@/pages/register";
 
-export default function Home() {
-
-    // @ts-ignore
-    return (
-        <Router>
-            <Routes >
-                <Route path="/" Component={Main} />
-            </Routes>
-        </Router>
-    );
+function Home() {
+    return <Register />;
 }
+
+export default Home;

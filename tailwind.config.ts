@@ -15,6 +15,9 @@ const config: Config = {
         '32BE50': '#32BE50',
         '545454': '#545454',
         'FF733C': '#FF733C',
+        '5A698C': '#5A698C',
+        '000000': '#000000',
+        '737373': '#737373',
         'gray-545454': '#545454',
       },
       fontFamily: {
@@ -23,6 +26,7 @@ const config: Config = {
       },
       borderRadius: {
         '27': '27px',
+        '40': '40px',
       },
       fontSize: {
         '32px': '32px',
@@ -30,6 +34,7 @@ const config: Config = {
         '21px': '21px',
         '77px': '77px',
         '16px': '16px',
+        '14px': '14px',
         '38px': '38px',
       },
       borderWidth: {

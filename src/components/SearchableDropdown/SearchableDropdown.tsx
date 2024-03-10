@@ -1,45 +1,54 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faUser} from "@fortawesome/free-solid-svg-icons";
+import {faHouse} from "@fortawesome/free-solid-svg-icons";
 
 // @ts-ignore
-function SearchableDropdown({ items, label }) {
+function SearchableDropdown({ items, label, onSelect }) {
     const [searchTerm, setSearchTerm] = useState('');
     const [results, setResults] = useState([]);
     const [selectedItem, setSelectedItem] = useState('');
+    const [isInputFocused, setIsInputFocused] = useState(false);
+
+    console.log(selectedItem, 'selectedItem');
 
     useEffect(() => {
-        if (searchTerm === '') {
+        if (searchTerm === '' && !isInputFocused) {
             setResults([]);
+            setSelectedItem(''); // Set selectedItem to null when searchTerm is empty
         } else {
             setResults(items.filter((item: string) => item.toLowerCase().includes(searchTerm.toLowerCase())));
         }
-    }, [searchTerm, items]);
+    }, [searchTerm, items, isInputFocused]);
 
     const handleSelectItem = (item: string) => {
         setSelectedItem(item);
         setSearchTerm(item);
         setResults([]);
+        setIsInputFocused(false);
+        onSelect(item);
     };
 
     return (
-        <div className="flex flex-col space-y-2">
+        <div className="relative w-full mb-3">
             <label className="flex items-center space-x-2">
-                <FontAwesomeIcon icon={faUser} style={{ color: '#FF733C', marginRight: '5px' }} />
-                <span>{label}</span>
+                <FontAwesomeIcon icon={faHouse} style={{color: '#FF733C', marginRight: '5px'}}/>
+                <label className="font-bold text-16px font-sans text-1B1B1B">{label}</label>
             </label>
-            <div className="relative w-64">
+            <div className="relative w-full">
                 <input
                     type="text"
                     value={searchTerm}
                     onChange={e => setSearchTerm(e.target.value)}
+                    onFocus={() => setIsInputFocused(true)}
+                    onBlur={() => setIsInputFocused(false)}
                     placeholder="Start typing to match your address"
-                    className="border-2 border-545454 rounded-27 p-2 w-full"
+                    className="border-1 border-545454 rounded-27 p-2 w-full"
                 />
-                {results.length > 0 && (
-                    <div className="absolute top-full mt-2 w-full border-2 border-545454 rounded-27 p-2 bg-white z-10">
-                        {results.map((result : string, index) => (
-                            <div key={index} className="dropdown-item cursor-pointer" onClick={() => handleSelectItem(result)}>
+                {(results.length > 0 || isInputFocused) && (
+                    <div className="absolute top-full mt-2 w-full border-1 border-545454 rounded-27 p-2 bg-white z-10">
+                        {results.map((result: string, index) => (
+                            <div key={index} className="dropdown-item cursor-pointer"
+                                 onClick={() => handleSelectItem(result)}>
                                 <strong>{result.substring(0, result.toLowerCase().indexOf(searchTerm.toLowerCase()) + searchTerm.length)}</strong>
                                 {result.substring(result.toLowerCase().indexOf(searchTerm.toLowerCase()) + searchTerm.length)}
                             </div>

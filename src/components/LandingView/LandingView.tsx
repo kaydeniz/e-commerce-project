@@ -27,7 +27,8 @@ function LandingView() {
                     who already </p>
                 <p className="text-white text-21px font-open-sans">offer Bumper to their customers.</p>
                 <div className="pt-4">
-                    <CustomButton label="Register Your Interest" selected={undefined} onSelect={undefined}/>
+                    <CustomButton label="Register Your Interest" selected={undefined} onSelect={undefined}
+                                  type={undefined} className={undefined}/>
                 </div>
                 <div className="pt-4">
                     <p className="text-white text-16px font-open-sans">Already registered? <span
