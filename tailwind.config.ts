@@ -18,7 +18,7 @@ const config: Config = {
         '5A698C': '#5A698C',
         '000000': '#000000',
         '737373': '#737373',
-        'gray-545454': '#545454',
+        'CDD2DC': '#CDD2DC',
       },
       fontFamily: {
         'oswald': ['Oswald', 'sans-serif'],
