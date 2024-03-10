@@ -14,10 +14,19 @@ const config: Config = {
         'DC3545': '#DC3545',
         '32BE50': '#32BE50',
         '545454': '#545454',
+        'FF733C': '#FF733C',
         'gray-545454': '#545454',
+      },
+      fontFamily: {
+        'oswald': ['Oswald', 'sans-serif'],
+        'open-sans': ['Open Sans', 'sans-serif']
       },
       borderRadius: {
         '27': '27px',
+      },
+      fontSize: {
+        '32px': '32px',
+        '77px': '77px',
       },
       borderWidth: {
         '1': '1px',
