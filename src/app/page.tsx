@@ -3,6 +3,7 @@ import {SetStateAction, useState} from "react";
 import TextInput from "@/components/TextInput/TextInput.client";
 import MultiSelectButton from "@/components/MultiSelectButton/MultiSelectButton";
 import CustomButton from "@/components/CustomButton/CustomButton";
+import SearchableDropdown from "@/components/SearchableDropdown/SearchableDropdown";
 
 export default function Home() {
     const [email, setEmail] = useState('');
@@ -41,6 +42,7 @@ export default function Home() {
 
                     <button type="submit">Submit</button>
                 </form>*/}
+                <SearchableDropdown items={['Option 1', 'Option 2', 'Option 3']} label={"Postcode"}/>
                 <CustomButton selected={selected} onSelect={() => setSelected(!selected)} label={'Button 1'}/>
                 <MultiSelectButton selected={selected} onSelect={() => setSelected(!selected)} label={'Option 1'}
                                    onSubmit={false}/>
