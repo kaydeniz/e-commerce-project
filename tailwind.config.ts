@@ -12,6 +12,7 @@ const config: Config = {
         '1B1B1B': '#1B1B1B',
         'DCE6E6': '#DCE6E6',
         'DC3545': '#DC3545',
+        '32BE50': '#32BE50',
         'gray-545454': '#545454',
       },
       borderRadius: {
