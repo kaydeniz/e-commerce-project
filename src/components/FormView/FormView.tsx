@@ -2,15 +2,21 @@
 import React from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
+import { useRouter } from 'next/navigation';
 
 // @ts-ignore
 function FormView({children}) {
+    const router = useRouter();
+
+    const goBack = () => {
+        router.push('/')
+    };
 
     return (
         <div className="p-10 flex justify-center items-center">
             <div className="w-full max-w-2xl">
-                <div className="flex items-center mb-5 cursor-pointer text-white">
-                    <FontAwesomeIcon icon={faArrowLeft}/>
+                <div className="flex items-center mb-5 cursor-pointer text-white" onClick={goBack}>
+                    <FontAwesomeIcon icon={faArrowLeft} size="2x"/>
                 </div>
                 <h2 className="text-38px font-normal mb-5 text-white">Join our network</h2>
                 <p className="text-sm font-normal mb-5 text-white">

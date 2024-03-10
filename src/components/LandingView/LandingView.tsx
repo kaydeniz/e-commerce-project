@@ -1,8 +1,9 @@
 // src/components/LandingView/LandingView.tsx
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faStar} from '@fortawesome/free-solid-svg-icons';
 import CustomButton from "@/components/CustomButton/CustomButton";
+import Link from 'next/link';
 
 function LandingView() {
     return (
@@ -27,8 +28,10 @@ function LandingView() {
                     who already </p>
                 <p className="text-white text-21px font-open-sans">offer Bumper to their customers.</p>
                 <div className="pt-4">
-                    <CustomButton label="Register Your Interest" selected={undefined} onSelect={undefined}
-                                  type={undefined} className={undefined}/>
+                    <Link href="/register">
+                        <CustomButton label="Register Your Interest" selected={undefined} onSelect={undefined}
+                                      type={undefined} className={undefined}/>
+                    </Link>
                 </div>
                 <div className="pt-4">
                     <p className="text-white text-16px font-open-sans">Already registered? <span

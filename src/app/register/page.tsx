@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from 'react';
 import NavBar from "@/components/NavBar/NavBar";
 import FormView from "@/components/FormView/FormView";
@@ -10,13 +11,13 @@ import MultiSelectView from "@/components/FormView/MultiSelectView";
 import CustomButton from "@/components/CustomButton/CustomButton";
 import {registerUser} from "@/api/register";
 
-function Register() {
+function Page() {
     const [name, setName] = useState('');
     const [company, setCompany] = useState('');
     const [mobilePhoneNumber, setMobilePhoneNumber] = useState('');
     const [emailAddress, setEmailAddress] = useState('');
     const [postcode, setPostcode] = useState('');
-    const [paymentOptions, setPaymentOptions] = useState({ pay_later: false, pay_now: true });
+    const [paymentOptions, setPaymentOptions] = useState({ pay_later: false, pay_now: false });
 
     const handleSubmit = async (event: { preventDefault: () => void; }) => {
         event.preventDefault();
@@ -77,4 +78,4 @@ function Register() {
     );
 }
 
-export default Register;
+export default Page;

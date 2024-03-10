@@ -1,8 +1,8 @@
 "use client";
-import Register from "@/pages/register";
+import Main from "../../pages/Main";
 
 function Home() {
-    return <Register />;
+    return <Main/>;
 }
 
 export default Home;

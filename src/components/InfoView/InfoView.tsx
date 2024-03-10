@@ -1,6 +1,7 @@
 // src/components/InfoView/InfoView.tsx
 import React from 'react';
 import CustomButton from "@/components/CustomButton/CustomButton";
+import Link from 'next/link';
 
 function InfoView() {
 
@@ -49,7 +50,10 @@ function InfoView() {
                     ))}
                 </div>
                 <div className="pt-4">
-                    <CustomButton label="Register Your Interest" selected={undefined} onSelect={undefined}/>
+                    <Link href="/register">
+                        <CustomButton label="Register Your Interest" selected={undefined} onSelect={undefined}
+                                      type={undefined} className={undefined}/>
+                    </Link>
                 </div>
             </div>
             <div className="w-1/2 pl-80 pt-20 pb-40 pr-12">
