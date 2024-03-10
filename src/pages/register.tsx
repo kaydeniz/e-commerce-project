@@ -8,6 +8,7 @@ import {faUser, faBuilding, faMobileAlt, faEnvelope} from "@fortawesome/free-sol
 import SearchableDropdown from "@/components/SearchableDropdown/SearchableDropdown";
 import MultiSelectView from "@/components/FormView/MultiSelectView";
 import CustomButton from "@/components/CustomButton/CustomButton";
+import {registerUser} from "@/api/register";
 
 function Register() {
     const [name, setName] = useState('');
@@ -15,9 +16,9 @@ function Register() {
     const [mobilePhoneNumber, setMobilePhoneNumber] = useState('');
     const [emailAddress, setEmailAddress] = useState('');
     const [postcode, setPostcode] = useState('');
-    const [paymentOptions, setPaymentOptions] = useState({ pay_later: "false", pay_now: "true" });
+    const [paymentOptions, setPaymentOptions] = useState({ pay_later: false, pay_now: true });
 
-    const handleSubmit = (event: { preventDefault: () => void; }) => {
+    const handleSubmit = async (event: { preventDefault: () => void; }) => {
         event.preventDefault();
 
         // Check if form values are valid
@@ -29,15 +30,19 @@ function Register() {
         const formData = {
             name,
             company,
-            mobilePhoneNumber,
-            emailAddress,
+            mobile_phone: mobilePhoneNumber,
+            email_address: emailAddress,
             postcode,
-            ...paymentOptions
+            pay_later: paymentOptions.pay_later ? 'true' : 'false',
+            pay_now: paymentOptions.pay_now ? 'true' : 'false'
         };
 
-        console.log(formData);
-
-        // Call your service here with formData
+        try {
+            const response = await registerUser(formData);
+            console.log(response);
+        } catch (error) {
+            console.error('Error during registration', error);
+        }
     };
 
     return (
