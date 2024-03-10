@@ -1,9 +1,11 @@
 "use client";
 import {SetStateAction, useState} from "react";
 import TextInput from "@/components/TextInput/TextInput.client";
+import MultiSelectButton from "@/components/MultiSelectButton/MultiSelectButton";
 
 export default function Home() {
     const [email, setEmail] = useState('');
+    const [selected, setSelected] = useState(false);
 
     const handleBlur = (e: any) => {
         console.log(e)
@@ -16,7 +18,7 @@ export default function Home() {
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
             <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-                <form onSubmit={handleSubmit}>
+                {/*<form onSubmit={handleSubmit}>
                     <TextInput
                         value={email}
                         onChange={(e: { target: { value: SetStateAction<string>; }; }) => setEmail(e.target.value)}
@@ -35,8 +37,11 @@ export default function Home() {
                         validationRegex={/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/}
                         errorMessage="Error"
                         onBlur={handleBlur} label={'Email'} icon={"fa-solid fa-user"}/>
+
                     <button type="submit">Submit</button>
-                </form>
+                </form>*/}
+                <MultiSelectButton selected={selected} onSelect={() => setSelected(!selected)} label={'Option 1'}
+                                   onSubmit={false}/>
             </div>
         </main>
     );

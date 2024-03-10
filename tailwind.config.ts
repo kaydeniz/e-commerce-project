@@ -8,11 +8,17 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        '1B1B1B': '#1B1B1B',
+        'DCE6E6': '#DCE6E6',
+        'DC3545': '#DC3545',
+        'gray-545454': '#545454',
+      },
       borderRadius: {
         '27': '27px',
       },
-      colors: {
-        'gray-545454': '#545454',
+      borderWidth: {
+        '1': '1px',
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
