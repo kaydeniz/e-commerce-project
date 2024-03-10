@@ -26,7 +26,11 @@ const config: Config = {
       },
       fontSize: {
         '32px': '32px',
+        '58px': '58px',
+        '21px': '21px',
         '77px': '77px',
+        '16px': '16px',
+        '38px': '38px',
       },
       borderWidth: {
         '1': '1px',
