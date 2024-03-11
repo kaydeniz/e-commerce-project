@@ -1,4 +1,3 @@
-// src/components/InfoView/InfoView.tsx
 import React from 'react';
 import CustomButton from "@/components/CustomButton/CustomButton";
 import Link from 'next/link';
@@ -18,8 +17,8 @@ function InfoView() {
     }]
 
     return (
-        <div className="flex w-full h-full bg-white p-48">
-            <div className="w-1/2 flex flex-col items-start">
+        <div className="flex flex-col lg:flex-row w-full bg-white p-8 lg:p-48">
+            <div className="lg:w-1/2 flex flex-col items-start">
                 <img src="/BumperLogo.svg" alt="Bumper Logo" style={{height: '19px', width: '74.82px'}}/>
                 <h1 className="text-1B1B1B text-58px font-oswald font-bold">PAYLATER</h1>
                 <p className="text-1B1B1B text-21px font-open-sans font-normal pt-4">
@@ -60,8 +59,8 @@ function InfoView() {
                     </Link>
                 </div>
             </div>
-            <div className="w-1/2 pl-80 pt-20 pb-40 pr-12">
-                <img src="/Phone.png" alt="Phone" className="w-full h-auto max-h-full object-cover"/>
+            <div className="lg:w-1/2 pt-8 md:pt-0 flex justify-center sm:p-0 md:p-0 lg:p-20 xl:p-40">
+                <img src="/Phone.png" alt="Phone" className="w-full h-auto lg:max-w-400 lg:max-h-400"/>
             </div>
         </div>
     );

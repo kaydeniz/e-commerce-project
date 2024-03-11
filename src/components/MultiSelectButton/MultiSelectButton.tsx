@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faCheck, faExclamation } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 
 // @ts-ignore
 function MultiSelectButton({ selected, onSelect, label, isError }) {
@@ -10,16 +10,15 @@ function MultiSelectButton({ selected, onSelect, label, isError }) {
 
     return (
         <button
-            className={`p-2 rounded-27 mr-1 border-1B1B1B border-1 ${buttonClass} ${isError && !selected ? 'border-DC3545' : ''}`}
+            className={`p-2 rounded-27 mr-1 border-1B1B1B border-1 ${buttonClass}`}
             onClick={onSelect}
             type={"button"}
         >
             <div className="flex justify-between items-center space-x-2">
                 <span className={labelClass}>{label}</span>
                 <div>
-                    {selected ? <FontAwesomeIcon icon={faCheck} className={iconClass}/> :
+                    {selected ? <FontAwesomeIcon icon={faMinus} className={iconClass}/> :
                         <FontAwesomeIcon icon={faPlus} className={iconClass}/>}
-                    {isError && !selected && <FontAwesomeIcon icon={faExclamation} className="text-DC3545 pl-2"/>}
                 </div>
             </div>
         </button>
