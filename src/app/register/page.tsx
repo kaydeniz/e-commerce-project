@@ -45,6 +45,10 @@ function Page() {
         try {
             const response = await registerUser(formData);
             dispatch(addData(formData))
+            const localStorageData = localStorage.getItem('dealershipsList');
+            const arr = localStorageData ? JSON.parse(localStorageData) : [];
+            arr.push(JSON.stringify(formData));
+            localStorage.setItem('dealershipsList', JSON.stringify(arr));
             console.log(response);
             router.push('/dealerships');
         } catch (error) {

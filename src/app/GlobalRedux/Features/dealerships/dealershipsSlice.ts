@@ -15,7 +15,15 @@ export const dealershipsSlice = createSlice({
     initialState,
     reducers: {
         addData: (state, action) => {
-            state.list = [...state.list, action.payload];
+            const newData = action.payload;
+            const isDuplicate = state.list.some((item: any) => {
+                return JSON.stringify(item) === JSON.stringify(newData);
+            });
+            if (!isDuplicate) {
+                state.list.push(newData);
+            } else {
+                console.log('Already exists in the list.');
+            }
         }
     }
 })

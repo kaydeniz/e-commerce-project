@@ -9,8 +9,6 @@ function SearchableDropdown({ items, label, onSelect }) {
     const [selectedItem, setSelectedItem] = useState('');
     const [isInputFocused, setIsInputFocused] = useState(false);
 
-    console.log(selectedItem, 'selectedItem');
-
     useEffect(() => {
         if (searchTerm === '' && !isInputFocused) {
             setResults([]);
