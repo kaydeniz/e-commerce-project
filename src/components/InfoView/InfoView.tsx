@@ -37,14 +37,18 @@ function InfoView() {
                 </p>
                 <div className="pt-4">
                     {list.map((item, index) => (
-                        <div key={index} className="flex items-start mb-4">
-                            <div
-                                className="flex items-center justify-center w-8 h-8 rounded-full bg-FF733C border-1 border-1B1B1B mr-4">
-                                <span className="text-1B1B1B font-bold">{index + 1}</span>
+                        <div key={index} className="flex w-full mb-3">
+                            <div className="w-1/12">
+                                <div
+                                    className="flex items-center justify-center w-8 h-8 rounded-full bg-FF733C border-1 border-1B1B1B mr-4">
+                                    <span className="text-1B1B1B font-bold">{index + 1}</span>
+                                </div>
                             </div>
-                            <div>
-                                <h2 className="text-1B1B1B text-21px font-open-sans font-bold">{item.title}</h2>
-                                <p className="text-1B1B1B text-16px font-open-sans">{item.description}</p>
+                            <div className="w-11/12">
+                                <div>
+                                    <h2 className="text-1B1B1B text-21px font-open-sans font-bold">{item.title}</h2>
+                                    <p className="text-1B1B1B text-16px font-open-sans">{item.description}</p>
+                                </div>
                             </div>
                         </div>
                     ))}

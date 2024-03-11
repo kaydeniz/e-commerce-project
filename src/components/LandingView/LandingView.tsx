@@ -7,10 +7,7 @@ import Link from 'next/link';
 
 function LandingView() {
     return (
-        <div className="relative w-full h-full min-h-screen" style={{
-            backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/Car.jpg")',
-            backgroundSize: 'cover'
-        }}>
+        <div className="relative w-full h-full min-h-screen">
             <div className="absolute inset-0 flex flex-col justify-start items-start px-16 md:px-20 pt-8">
                 <div className="flex items-center space-x-2">
                     <h1 className="text-white text-32px font-bold">Excellent</h1>

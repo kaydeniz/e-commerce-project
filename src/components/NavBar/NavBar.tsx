@@ -4,8 +4,8 @@ import {faRightToBracket} from "@fortawesome/free-solid-svg-icons";
 
 function NavBar() {
     return (
-        <nav className="w-full bg-1B1B1B">
-            <div className="flex justify-between items-center px-16 md:px-20 py-4 relative">
+        <div className="w-full rounded-b-27 bg-FF733C">
+            <div className="flex justify-between bg-1B1B1B items-center px-16 md:px-20 py-4 relative rounded-b-27">
                 <div className="flex items-center space-x-4 h-full">
                     <div className="relative">
                         <p className="text-white border-b-2 border-transparent pb-1">For Business</p>
@@ -21,7 +21,7 @@ function NavBar() {
                     </div>
                 </button>
             </div>
-            <div className="w-full bg-FF733C flex justify-between items-center px-16 md:px-20 py-4">
+            <div className="w-full flex justify-between items-center px-16 md:px-20 py-4 rounded-b-27">
                 <div className="flex items-center space-x-4">
                     <img src="/BumperLogo.svg" alt="Bumper Logo"/>
                     <span className="text-black font-oswald font-bold">for business</span>
@@ -29,7 +29,7 @@ function NavBar() {
                 <button className="bg-32BE50 border-2 border-black text-black px-4 py-2 font-open-sans">Register
                 </button>
             </div>
-        </nav>
+        </div>
     );
 }
 
