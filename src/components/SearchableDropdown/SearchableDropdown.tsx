@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, {useState, useEffect} from 'react';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faHouse} from "@fortawesome/free-solid-svg-icons";
 
 // @ts-ignore
-function SearchableDropdown({ items, label, onSelect }) {
+function SearchableDropdown({items, label, onSelect}) {
     const [searchTerm, setSearchTerm] = useState('');
     const [results, setResults] = useState([]);
     const [selectedItem, setSelectedItem] = useState('');
@@ -12,11 +12,19 @@ function SearchableDropdown({ items, label, onSelect }) {
     useEffect(() => {
         if (searchTerm === '' && !isInputFocused) {
             setResults([]);
-            setSelectedItem(''); // Set selectedItem to null when searchTerm is empty
+            setSelectedItem('');
+            console.log('render0')
         } else {
-            setResults(items.filter((item: string) => item.toLowerCase().includes(searchTerm.toLowerCase())));
+            if (!selectedItem) {
+                console.log('render1')
+                setResults(items.filter((item: string) => item.toLowerCase().includes(searchTerm.toLowerCase())));
+            }
         }
     }, [searchTerm, items, isInputFocused]);
+
+    useEffect(() => {
+        setSelectedItem('')
+    }, [searchTerm]);
 
     const handleSelectItem = (item: string) => {
         setSelectedItem(item);
@@ -39,7 +47,6 @@ function SearchableDropdown({ items, label, onSelect }) {
                     value={searchTerm}
                     onChange={e => setSearchTerm(e.target.value)}
                     onFocus={() => setIsInputFocused(true)}
-                    onBlur={() => setIsInputFocused(false)}
                     placeholder="Start typing to match your address"
                     className="border-1 border-545454 rounded-27 p-2 w-full"
                 />
