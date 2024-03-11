@@ -15,6 +15,7 @@ function SearchView({value, onChange}) {
                         <label className="font-bold text-16px font-sans text-1B1B1B">Search Company</label>
                     </div>
                     <input
+                        data-testid="search-input"
                         placeholder={"Start typing name, company, phone or email for search"}
                         type={"text"}
                         value={value}

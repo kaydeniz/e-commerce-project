@@ -35,6 +35,7 @@ function SearchableDropdown({ items, label, onSelect }) {
             <div className="relative w-full">
                 <input
                     type="text"
+                    name={'postcode'}
                     value={searchTerm}
                     onChange={e => setSearchTerm(e.target.value)}
                     onFocus={() => setIsInputFocused(true)}

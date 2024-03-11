@@ -10,6 +10,7 @@ function MultiSelectButton({ selected, onSelect, label, isError }) {
 
     return (
         <button
+            id={label}
             className={`p-2 rounded-27 mr-1 border-1B1B1B border-1 ${buttonClass}`}
             onClick={onSelect}
             type={"button"}

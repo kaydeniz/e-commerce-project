@@ -13,8 +13,11 @@ import {registerUser} from "@/api/register";
 import {useDispatch} from "react-redux";
 import {addData} from "@/app/GlobalRedux/Features/dealerships/dealershipsSlice";
 import {useRouter} from "next/navigation";
+import Snackbar from "@/components/Snackbar/Snackbar";
 
 function Page() {
+    const [snackbarMessage, setSnackbarMessage] = useState('');
+    const [snackbarType, setSnackbarType] = useState('');
     const [name, setName] = useState('');
     const [company, setCompany] = useState('');
     const [mobilePhoneNumber, setMobilePhoneNumber] = useState('');
@@ -50,14 +53,21 @@ function Page() {
             arr.push(JSON.stringify(formData));
             localStorage.setItem('dealershipsList', JSON.stringify(arr));
             console.log(response);
-            router.push('/dealerships');
+            setSnackbarMessage('Registration successful');
+            setSnackbarType('success');
+            setTimeout(() => {
+                router.push('/dealerships');
+            }, 1000);
         } catch (error) {
             console.error('Error during registration', error);
+            setSnackbarMessage('Error during registration');
+            setSnackbarType('error');
         }
     };
 
     return (
         <div className="relative w-full h-full min-h-screen bg-5A698C">
+            {snackbarMessage && <Snackbar message={snackbarMessage} type={snackbarType}/>}
             <NavBar/>
             <FormView>
                 <form onSubmit={handleSubmit}>

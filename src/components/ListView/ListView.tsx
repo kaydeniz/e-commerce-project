@@ -19,7 +19,7 @@ function ListView({list}: ListViewProps) {
         <div className="p-10 flex justify-center items-center">
             <div className="w-full max-w-2xl">
                 {list.map((item, index) => (
-                    <div className="bg-white p-5 rounded-40 shadow-md mb-4" key={index}>
+                    <div data-testid="list-item" className="bg-white p-5 rounded-40 shadow-md mb-4" key={index}>
                         <p className="font-oswald font-bold text-21px">{item.name}</p>
                         <hr className="border-0.5 border-CDD2DC"/>
                         <div className="flex justify-between pb-2 pt-2">
