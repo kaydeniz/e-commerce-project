@@ -1,7 +1,8 @@
 import React from 'react';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faRightToBracket } from "@fortawesome/free-solid-svg-icons";
-import { useRouter } from "next/navigation";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faRightToBracket} from "@fortawesome/free-solid-svg-icons";
+import {useRouter} from "next/navigation";
+import Link from 'next/link';
 
 function NavBar() {
     const router = useRouter();
@@ -30,10 +31,13 @@ function NavBar() {
             </div>
             <div className="w-full flex justify-between items-center px-16 md:px-20 py-4 rounded-b-27">
                 <div className="flex items-center space-x-4">
-                    <img src="/BumperLogo.svg" alt="Bumper Logo" onClick={goHome} style={{ cursor: 'pointer' }}/>
+                    <img src="/BumperLogo.svg" alt="Bumper Logo" onClick={goHome} style={{cursor: 'pointer'}}/>
                     <span className="text-black font-oswald font-bold">for business</span>
                 </div>
-                <button className="bg-32BE50 border-2 border-black text-black px-4 py-2 font-open-sans">Register</button>
+                <Link href="/register">
+                    <button className="bg-32BE50 border-2 border-black text-black px-4 py-2 font-open-sans">Register
+                    </button>
+                </Link>
             </div>
         </div>
     );
