@@ -1,8 +1,15 @@
 import React from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faRightToBracket} from "@fortawesome/free-solid-svg-icons";
+import {useRouter} from "next/navigation";
 
 function NavBar() {
+    const router = useRouter();
+
+    function goHome() {
+        router.push('/');
+    }
+
     return (
         <div className="w-full rounded-b-27 bg-FF733C">
             <div className="flex justify-between bg-1B1B1B items-center px-16 md:px-20 py-4 relative rounded-b-27">
@@ -23,7 +30,7 @@ function NavBar() {
             </div>
             <div className="w-full flex justify-between items-center px-16 md:px-20 py-4 rounded-b-27">
                 <div className="flex items-center space-x-4">
-                    <img src="/BumperLogo.svg" alt="Bumper Logo"/>
+                    <img src="/BumperLogo.svg" alt="Bumper Logo" onClick={goHome} style={{cursor: 'pointer'}}/>
                     <span className="text-black font-oswald font-bold">for business</span>
                 </div>
                 <button className="bg-32BE50 border-2 border-black text-black px-4 py-2 font-open-sans">Register
