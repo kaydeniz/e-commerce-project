@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import NavBar from "@/components/NavBar/NavBar";
 import FormView from "@/components/FormView/FormView";
 import TextInput from "@/components/TextInput/TextInput.client";
@@ -10,6 +10,9 @@ import SearchableDropdown from "@/components/SearchableDropdown/SearchableDropdo
 import MultiSelectView from "@/components/FormView/MultiSelectView";
 import CustomButton from "@/components/CustomButton/CustomButton";
 import {registerUser} from "@/api/register";
+import {useDispatch} from "react-redux";
+import {addData} from "@/app/GlobalRedux/Features/dealerships/dealershipsSlice";
+import {useRouter} from "next/navigation";
 
 function Page() {
     const [name, setName] = useState('');
@@ -17,12 +20,13 @@ function Page() {
     const [mobilePhoneNumber, setMobilePhoneNumber] = useState('');
     const [emailAddress, setEmailAddress] = useState('');
     const [postcode, setPostcode] = useState('');
-    const [paymentOptions, setPaymentOptions] = useState({ pay_later: false, pay_now: false });
+    const [paymentOptions, setPaymentOptions] = useState({pay_later: false, pay_now: false});
+    const dispatch = useDispatch();
+    const router = useRouter();
 
     const handleSubmit = async (event: { preventDefault: () => void; }) => {
         event.preventDefault();
 
-        // Check if form values are valid
         if (!REGEX.NAME.test(name) || !REGEX.COMPANY.test(company) || !REGEX.MOBILE_PHONE_NUMBER.test(mobilePhoneNumber) || !REGEX.EMAIL_ADDRESS.test(emailAddress)) {
             alert('Please fill in the form correctly.');
             return;
@@ -40,7 +44,9 @@ function Page() {
 
         try {
             const response = await registerUser(formData);
+            dispatch(addData(formData))
             console.log(response);
+            router.push('/dealerships');
         } catch (error) {
             console.error('Error during registration', error);
         }
@@ -52,16 +58,24 @@ function Page() {
             <FormView>
                 <form onSubmit={handleSubmit}>
                     <TextInput name="name" label="Name" type="text" icon={faUser} regex={REGEX.NAME} value={name}
-                               onChange={(e: { target: { value: React.SetStateAction<string>; }; }) => setName(e.target.value)} errorMessage={undefined}/>
+                               onChange={(e: {
+                                   target: { value: React.SetStateAction<string>; };
+                               }) => setName(e.target.value)} errorMessage={undefined}/>
                     <TextInput name="company" label="Company" type="text" icon={faBuilding} regex={REGEX.COMPANY}
                                value={company}
-                               onChange={(e: { target: { value: React.SetStateAction<string>; }; }) => setCompany(e.target.value)} errorMessage={undefined}/>
+                               onChange={(e: {
+                                   target: { value: React.SetStateAction<string>; };
+                               }) => setCompany(e.target.value)} errorMessage={undefined}/>
                     <TextInput name="mobilePhoneNumber" label="Mobile Phone Number" type="tel" icon={faMobileAlt}
                                regex={REGEX.MOBILE_PHONE_NUMBER} value={mobilePhoneNumber}
-                               onChange={(e: { target: { value: React.SetStateAction<string>; }; }) => setMobilePhoneNumber(e.target.value)} errorMessage={undefined}/>
+                               onChange={(e: {
+                                   target: { value: React.SetStateAction<string>; };
+                               }) => setMobilePhoneNumber(e.target.value)} errorMessage={undefined}/>
                     <TextInput name="emailAddress" label="Email Address" type="email" icon={faEnvelope}
                                regex={REGEX.EMAIL_ADDRESS} value={emailAddress}
-                               onChange={(e: { target: { value: React.SetStateAction<string>; }; }) => setEmailAddress(e.target.value)} errorMessage={undefined}/>
+                               onChange={(e: {
+                                   target: { value: React.SetStateAction<string>; };
+                               }) => setEmailAddress(e.target.value)} errorMessage={undefined}/>
                     <SearchableDropdown label={"Postcode"} items={postcodeList} onSelect={setPostcode}/>
                     <MultiSelectView setPaymentOptions={setPaymentOptions} paymentOptions={paymentOptions}/>
                     <div className="relative w-full mb-3">
